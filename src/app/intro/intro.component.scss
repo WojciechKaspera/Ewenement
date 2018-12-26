@@ -1,0 +1,85 @@
+@import '../styles/config.scss';
+
+.intro-section {
+    background-image: url('../../assets/images/intro_background.jpg');
+    background-size: 100% 100%;
+    height: 100vh;
+    margin: 0;
+    .intro-nav-box {
+        .intro-nav {
+            display: flex;
+            align-items: center;
+            padding: 0;
+            margin: 0;
+            list-style: none;
+            color: $ewenement-secondary;
+            font-size: 16px;
+            font-weight: bold;
+            .intro-nav-item {
+                margin: 10px;
+                &:first-of-type {
+                    border-right: 3px solid $ewenement-secondary;
+                    margin: 10px 0;;
+                    padding-right: 10px;
+                }
+                .intro-nav-link {
+                    &:hover {
+                        cursor: pointer;
+                        text-decoration: underline;
+                    }
+                }
+            }
+        }
+    }
+    .intro-wide-logo-box {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        padding-top: 10px;
+        border-top: 1px solid $ewenement-main;
+        border-bottom: 1px solid $ewenement-main;
+        margin-bottom: 20px;
+        .intro-wide-logo-addon {
+            position: absolute;
+            width: 220px;
+            font-size: 26px;
+            letter-spacing: 1px;
+            font-weight: bold;
+            text-align: center;
+            background: $ewenement-secondary;
+            color: $ewenement-font-primary;
+            padding: 0 15px;
+            left: calc(50% - 125px);
+            top: -29px;
+        }
+        .intro-wide-logo {
+            width: 50%;
+        }
+    }
+    .intro-main-image-box {
+        width: 100%;
+        padding: 20px 0;
+        box-sizing: border-box;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        .intro-main-image {
+            max-height: 40vh;
+        }
+    }
+    .intro-round-logo-box {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        .intro-round-logo-image {
+            width: 60px;
+        }
+    }
+}
+
+.placeholder {
+    height: 1000px;
+}

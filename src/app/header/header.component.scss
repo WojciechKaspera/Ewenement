@@ -1,0 +1,84 @@
+@import '../styles/config.scss';
+
+.header-section {
+  width: 100%;
+  background: $ewenement-secondary;
+  transition: background-color linear .3s;
+  position: absolute;
+  top: calc(100vh - 69px);
+  z-index: 999;
+
+  .header-section-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 0;
+
+    .header-logo-img {
+      &:hover {
+        cursor: pointer;
+      }
+    }
+
+    .header-nav-box {
+      .header-nav {
+        padding: 0;
+        margin: 0;
+        list-style: none;
+        display: flex;
+        align-items: center;
+        font-size: 1.375rem;
+        font-weight: bold;
+
+        .header-nav-item {
+          margin-left: 20px;
+
+          .header-nav-link {
+            color: $ewenement-font-primary;
+            transition: color linear .2s;
+            font-weight: bold;
+
+            &:hover {
+              cursor: pointer;
+              color: $ewenement-main;
+            }
+          }
+
+          .header-nav-img {
+            background: url('../../assets/images/mail.png') $ewenement-secondary;
+            padding: 10px 24px;
+            background-position: center center;
+            background-repeat: no-repeat;
+            border-radius: 4px;
+
+            &:hover {
+              cursor: pointer;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.header-section.fixed {
+  background-color: $ewenement-main;
+  position: fixed;
+  top: 0 !important;
+
+  .header-section-wrapper {
+    .header-nav-box {
+      .header-nav {
+        .header-nav-item {
+          .header-nav-link {
+            color: $ewenement-secondary;
+
+            &:hover {
+              color: $ewenement-font-primary;
+            }
+          }
+        }
+      }
+    }
+  }
+}

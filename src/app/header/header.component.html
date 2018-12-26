@@ -1,0 +1,20 @@
+<section class="header-section" [class.fixed]="shouldBeFixed()" [@topBottom]="onTop ? 'top' : 'bottom'">
+  <div class="container"> 
+    <div class="header-section-wrapper">
+          <img class="header-logo-img" src="../../assets/images/logo.png" alt="Ewenement" routerLink="/home">
+          <div class="header-nav-box">
+            <ul class="header-nav">
+              <li class="header-nav-item" *ngFor="let section of sections">
+                <a class="header-nav-link" routerLink="/{{section.url}}">{{section.text}}</a>
+              </li>
+              <li class="header-nav-item">
+                <a class="header-nav-img"></a>
+              </li>
+              <li class="header-nav-item">
+                <a class="header-nav-link">EN</a>
+              </li>
+            </ul>
+          </div>
+    </div>
+  </div>
+</section>

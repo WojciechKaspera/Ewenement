@@ -1,1 +1,36 @@
-/* You can add global styles to this file, and also import other style files */
+@import './app/styles/normalize.scss';
+@import './app/styles/config.scss';
+
+@font-face {
+    font-family: 'Bebasneue-light';
+    src: url('./assets/fonts/bebasneue_light-webfont.woff') format('woff2'),
+         url('./assets/fonts/bebasneue_light-webfont.woff2') format('woff');
+    font-weight: normal;
+    font-style: normal;
+  }
+
+body {
+    font-size: 16px;
+    font-family: Bebasneue-light, Fallback, sans-serif;
+}
+
+a {
+    text-decoration: none;
+}
+
+.container {
+    max-width: 1200px;
+    margin: auto;
+    @media (max-width: 1280px) {
+        padding: 0 40px;
+    }
+    @media (max-width: 992px) {
+        padding: 0 32px;
+    }
+    @media (max-width: 768px) {
+        padding: 0 20px;
+    }
+    @media (max-width: 576px) {
+        padding: 0 15px;
+    }
+}
