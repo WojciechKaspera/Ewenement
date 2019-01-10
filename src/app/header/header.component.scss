@@ -3,7 +3,7 @@
 .header-section {
   width: 100%;
   background: $ewenement-secondary;
-  transition: background-color linear .3s;
+  transition: background-color linear .3s, top linear .3s;
   position: absolute;
   top: calc(100vh - 69px);
   z-index: 999;
@@ -61,10 +61,9 @@
   }
 }
 
-.header-section.fixed {
+.header-section.top {
   background-color: $ewenement-main;
-  position: fixed;
-  top: 0 !important;
+  top: 0;
 
   .header-section-wrapper {
     .header-nav-box {

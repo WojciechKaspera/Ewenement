@@ -1,36 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { SectionNavItem } from '../shared/interfaces/section-nav-item.interface';
-import { Router, RouterEvent, NavigationEnd } from '@angular/router';
-import {
-  trigger,
-  state,
-  style,
-  animate,
-  transition,
-} from '@angular/animations';
+import { Router, ActivatedRoute, RouterEvent, NavigationStart } from '@angular/router';
 
 @Component({
   selector: 'ewenement-header',
   templateUrl: './header.component.html',
-  styleUrls: ['./header.component.scss'],
-  animations: [
-    trigger('topBottom', [
-      state('top', style({
-        top: '0px',
-      })),
-      state('bottom', style({
-        top: 'calc(100vh - 69px)',
-      })),
-      transition('top => bottom', [
-        animate('0.4s 0s ease-in')
-      ]),
-      transition('bottom => top', [
-        animate('0.4s 0s ease-in')
-      ]),
-    ]),
-  ]
+  styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
+
+  home: boolean;
 
   sections: SectionNavItem[] = [
     { url: '/about', text: 'O MNIE' },
@@ -39,28 +18,28 @@ export class HeaderComponent implements OnInit {
     { url: '/projects', text: 'PROJEKTY' }
   ]
 
-  onTop = false;
+  constructor(private router: Router, private route: ActivatedRoute) { }
 
-  constructor(private router: Router) { }
-
-  shouldBeFixed() {
+  navigate(url) {
+    const timeout = (this.home || url === '/home') ? 300 : 0;
+    if (url === '/home') {
+      this.home = true;
+    } else {
+      this.home = false;
+    }
+    setTimeout(() => {
+      this.router.navigateByUrl(url);
+    }, timeout);
   }
 
   ngOnInit() {
-    window.addEventListener('scroll', () => { });
     this.router.events.subscribe((event: RouterEvent) => {
-      if (event instanceof NavigationEnd) {
+      if (event instanceof NavigationStart) {
         if (event.url === '/home') {
-          this.onTop = false;
-          setTimeout(() => {
-            this.shouldBeFixed = () => window.innerHeight - window.scrollY - 69 <= 0;
-          }, 300);
-        } else {
-          this.onTop = true;
-            this.shouldBeFixed = () => true;
+          this.home = true;
         }
       }
-    })
+    });
   }
 
 }
