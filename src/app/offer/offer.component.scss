@@ -1,0 +1,89 @@
+@import '../styles/config.scss';
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,700,800);
+
+.offer-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding-top: $ewenement-header-height;
+  box-sizing: border-box;
+  width: 100%;
+
+  .offer-introduction-box {
+    background: white;
+    width: 100%;
+    min-height: 100vh;
+
+    .title {
+      font-family: 'Bebas-Neue';
+      max-width: 800px;
+      font-size: 44px;
+      font-weight: 400;
+      color: $ewenement-main;
+      margin: 40px auto;
+    }
+
+    .content {
+      font-family: 'Open Sans';
+      font-size: 25px;
+      max-width: 850px;
+      text-align: center;
+      font-weight: 700;
+      color: $ewenement-font-primary;
+      margin: 40px auto;
+
+      .content-inlet {
+        color: $ewenement-main;
+      }
+    }
+  }
+
+  .parallax-box {
+    height: 80vh;
+    width: 100%;
+    background: none;
+
+    .parallax {
+      width: 100%;
+      height: 100vh;
+      position: fixed;
+      z-index: -1;
+      background: url('../../assets/images/offer_parallax.jpg');
+    }
+  }
+
+  .offer-description {
+    width: 100%;
+    min-height: 80vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: white;
+
+    .title {
+      font-family: 'Open Sans';
+      font-size: 25px;
+      max-width: 850px;
+      text-align: center;
+      font-weight: 700;
+      color: $ewenement-font-primary;
+      margin: 40px auto;
+
+      .inlet {
+        color: $ewenement-main;
+      }
+    }
+
+    .content {
+      font-family: 'Open Sans';
+      font-size: 20px;
+      max-width: 850px;
+      text-align: center;
+      font-weight: 700;
+      color: $ewenement-font-primary;
+    }
+  }
+}

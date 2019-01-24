@@ -9,7 +9,7 @@ import { Router, ActivatedRoute, RouterEvent, NavigationStart } from '@angular/r
 })
 export class HeaderComponent implements OnInit {
 
-  home: boolean;
+  home = true;
 
   sections: SectionNavItem[] = [
     { url: '/about', text: 'O MNIE' },
@@ -37,7 +37,9 @@ export class HeaderComponent implements OnInit {
       if (event instanceof NavigationStart) {
         if (event.url === '/home') {
           this.home = true;
+          return;
         }
+        this.home = false;
       }
     });
   }
