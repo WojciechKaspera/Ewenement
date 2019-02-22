@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, Input } from '@angular/core';
 import { SectionNavItem } from '../shared/interfaces/section-nav-item.interface';
-import { Router, ActivatedRoute, RouterEvent, NavigationStart } from '@angular/router';
+import { ScrollService } from '../shared/scroll.service';
 
 @Component({
   selector: 'ewenement-header',
@@ -9,39 +9,27 @@ import { Router, ActivatedRoute, RouterEvent, NavigationStart } from '@angular/r
 })
 export class HeaderComponent implements OnInit {
 
-  home = true;
+  fixed = false;
+
+  @Input() activeSection: string;
+
+  @ViewChild('header') headerElement: ElementRef;
 
   sections: SectionNavItem[] = [
-    { url: '/about', text: 'O MNIE' },
-    { url: '/offer', text: 'OFERTA' },
-    { url: '/references', text: 'REFERENCJE' },
-    { url: '/projects', text: 'PROJEKTY' }
+    { url: '/about', text: 'O MNIE', id: 'about' },
+    { url: '/offer', text: 'OFERTA', id: 'offer' },
+    { url: '/references', text: 'REFERENCJE', id: 'references' },
+    { url: '/projects', text: 'PROJEKTY', id: 'projects' }
   ]
 
-  constructor(private router: Router, private route: ActivatedRoute) { }
+  constructor(private scrollService: ScrollService) { }
 
-  navigate(url) {
-    const timeout = (this.home || url === '/home') ? 300 : 0;
-    if (url === '/home') {
-      this.home = true;
-    } else {
-      this.home = false;
-    }
-    setTimeout(() => {
-      this.router.navigateByUrl(url);
-    }, timeout);
+  navigate(section) {
+    this.scrollService.navigate(section);
   }
 
   ngOnInit() {
-    this.router.events.subscribe((event: RouterEvent) => {
-      if (event instanceof NavigationStart) {
-        if (event.url === '/home') {
-          this.home = true;
-          return;
-        }
-        this.home = false;
-      }
-    });
+    this.scrollService.headerFixedObservable.subscribe((headerFixed: boolean) => this.fixed = headerFixed);
   }
 
 }

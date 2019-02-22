@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-references',
+  selector: 'ewenement-references',
   templateUrl: './references.component.html',
   styleUrls: ['./references.component.scss']
 })

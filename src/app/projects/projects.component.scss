@@ -1,0 +1,26 @@
+@import '../styles/config.scss';
+
+.projects-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    background: white;
+    .content {
+        font-family: 'Open Sans';
+        font-size: 25px;
+        max-width: 940px;
+        text-align: center;
+        font-weight: 700;
+        color: $ewenement-font-primary;
+        margin: 40px auto;
+        .content-inlet {
+          color: $ewenement-main;
+        }
+      }
+      .galery-box {
+          height: 200vh;
+          background: blue;
+      }
+}

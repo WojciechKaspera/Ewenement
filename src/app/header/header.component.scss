@@ -3,7 +3,6 @@
 .header-section {
   width: 100%;
   background: $ewenement-secondary;
-  transition: background-color linear .3s, top linear .3s;
   position: absolute;
   top: calc(100vh - 69px);
   z-index: 999;
@@ -55,15 +54,21 @@
               cursor: pointer;
             }
           }
+          .header-nav-img.active {
+            background: url('../../assets/images/mail.png') $ewenement-font-primary;
+            background-position: center center;
+            background-repeat: no-repeat;
+          }
         }
       }
     }
   }
 }
 
-.header-section.top {
+.header-section.fixed {
   background-color: $ewenement-main;
   top: 0;
+  position: fixed;
 
   .header-section-wrapper {
     .header-nav-box {
@@ -75,6 +80,9 @@
             &:hover {
               color: $ewenement-font-primary;
             }
+          }
+          .active {
+            color: $ewenement-font-primary;
           }
         }
       }

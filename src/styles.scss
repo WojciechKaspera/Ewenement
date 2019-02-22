@@ -32,6 +32,7 @@ html {
 body {
   font-size: 16px;
   font-family: Bebas-Neue-Light, sans-serif;
+  overflow: hidden;
 }
 
 a {
@@ -39,8 +40,12 @@ a {
 }
 
 h1 {
+  box-shadow: 0px 0px 0px 3px $ewenement-main;
+  background: #FFD600;
+  color: #fff;
+  border: 4px solid #ffffff;
   font-size: 5rem;
-  margin: 0;
+  margin: 3rem 0 0 0;
 }
 
 .container {
@@ -57,5 +62,20 @@ h1 {
   }
   @media (max-width: 576px) {
     padding: 0 15px;
+  }
+}
+
+.button-primary {
+  border: none;
+  background-color: $ewenement-btn-primary;
+  border-radius: 3px;
+  color: white;
+  padding: 12px 24px;
+  transition: backgrond-color linear 0.3s;
+  &:hover {
+    background-color: $ewenement-btn-primary-hover;
+  }
+  &:disabled {
+    background-color: $ewenement-btn-primary-disabled;
   }
 }
